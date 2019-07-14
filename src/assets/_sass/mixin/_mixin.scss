@@ -1,0 +1,29 @@
+@mixin iMac {
+  @media #{map-deep-get($breakpoint-conf, breakpoint, max)} {
+    @content;
+  }
+}
+
+@mixin pc {
+  @media #{map-deep-get($breakpoint-conf, breakpoint, pc)} {
+    @content;
+  }
+}
+
+@mixin sp {
+  @media #{map-deep-get($breakpoint-conf, breakpoint, sp)} {
+    @content;
+  }
+}
+
+@mixin not-pc {
+  @media #{map-deep-get($breakpoint-conf, breakpoint, not-pc)} {
+    @content;
+  }
+}
+
+@mixin not-sp {
+  @media #{map-deep-get($breakpoint-conf, breakpoint, not-sp)} {
+    @content;
+  }
+}

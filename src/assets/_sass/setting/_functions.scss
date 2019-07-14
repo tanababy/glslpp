@@ -1,0 +1,37 @@
+/// pxtovw
+/// pxのフォントサイズをvw単位に変換する関数
+@function pxtovw($value, $device) {
+  @if $device == "pc" {
+    @return ($value * 100 / $design-width-pc) * 1vw;
+  }
+  @if $device == "sp" {
+    @return ($value * 100 / $design-width-sp) * 1vw;
+  }
+}
+
+/// pxtorem
+/// pxのフォントサイズをrem単位に変換する関数
+@function pxtorem($value, $device) {
+  @if $device == "pc" {
+    @return ($value / $root-fz-pc) * 1rem;
+  }
+  @if $device == "sp" {
+    @return ($value / $root-fz-sp) * 1rem;
+  }
+}
+
+/// photoshopの値からletter-spacingの値を返す
+@function tracking($value) {
+  @return $value / 1000 * 1em;
+}
+
+/// 配列の合成
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    @if not map-has-key($map, $key) {
+      @return null;
+    }
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}
