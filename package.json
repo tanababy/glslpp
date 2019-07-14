@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "start": "webpack-dev-server --inline --hot"
+    "start": "webpack-dev-server --inline --hot",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "Yuki Tanabe <tanabe@plus-d.co.jp>",
@@ -23,6 +24,7 @@
     "copy-webpack-plugin": "^5.0.3",
     "css-loader": "^3.0.0",
     "file-loader": "^4.0.0",
+    "gh-pages": "^2.0.1",
     "glslify": "^7.0.0",
     "glslify-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
