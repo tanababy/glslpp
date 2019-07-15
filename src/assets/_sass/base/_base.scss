@@ -13,6 +13,8 @@ body {
 body {
   line-height: $line-height-pc;
   background-color: #050727;
+  opacity: 0;
+  visibility: hidden;
 
   @include pc {
     min-width: 1200px;
@@ -20,6 +22,8 @@ body {
 
   &.underlayer {
     overflow: hidden;
+    opacity: 1;
+    visibility: visible;
   }
 }
 
@@ -102,8 +106,7 @@ img[src$=".svg"] {
 .smartphone-layer {
   width: 80vw;
   margin: 15vh auto 0;
-  opacity: 0;
-  visibility: hidden;
+  display: none;
 
   &__title {
     font-family: 'Orbitron', serif;

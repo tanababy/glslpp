@@ -39,17 +39,14 @@ new Vue({
 
   if (ua.indexOf('iphone') !== -1 || ua.indexOf('ipad') !== -1 || ua.indexOf('android') !== -1){
     TweenMax.set($('.smartphone-layer'), {
-      autoAlpha: 1
+      display: 'block'
     });
     TweenMax.set($('.pc-layer'), {
       display: 'none'
     });
   } else {
-    TweenMax.to($('.pc-layer'),.5, {
+    TweenMax.set($('.pc-layer'), {
       autoAlpha: 1
-    });
-    TweenMax.set($('.smartphone-layer'), {
-      display: 'none'
     });
   }
 
@@ -96,7 +93,12 @@ let showProgress = () => {
   window.requestAnimationFrame(updateProgress);
 }
 if ($('body').hasClass('top')) {
-  showProgress();
+  TweenMax.to($('body'), 1.5, {
+    autoAlpha: 1,
+    onComplete: () => {
+      showProgress();
+    }
+  });
 } else {
   TweenMax.to($('.loading-layer'), .5, {
     autoAlpha: 0

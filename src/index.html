@@ -27,6 +27,21 @@
 
       gtag('config', 'UA-143697577-1');
     </script>
+
+    <script>
+      (function (l) {
+        if (l.search) {
+            var q = {};
+            l.search.slice(1).split('&').forEach(function (v) {
+                var a = v.split('=');
+                q[a[0]] = a[1];
+            });
+            if (q.p !== undefined) {
+                window.history.replaceState(null, null, l.pathname.slice(0, -1) + (q.p || '')); // https://hoge.com/fooへ遷移
+            }
+        }
+      }(window.location))
+    </script>
   </head>
   <body>
     <div class="smartphone-layer">
@@ -38,7 +53,7 @@
     <div class="pc-layer">
       <div class="loading-layer">
         <p class="loading-layer__lead">Loading...</p>
-        <p class="loading-layer__progress"><span class="loading-layer__count">100</span>% Completed</p>
+        <p class="loading-layer__progress"><span class="loading-layer__count">0</span>% Completed</p>
       </div>
       <main id="app"></main>
     </div>
