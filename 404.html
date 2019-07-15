@@ -27,36 +27,18 @@
 
       gtag('config', 'UA-143697577-1');
     </script>
-
     <script>
-      (function (l) {
-        if (l.search) {
-            var q = {};
-            l.search.slice(1).split('&').forEach(function (v) {
-                var a = v.split('=');
-                q[a[0]] = a[1];
-            });
-            if (q.p !== undefined) {
-                window.history.replaceState(null, null, l.pathname.slice(0, -1) + (q.p || '')); // https://hoge.com/fooへ遷移
-            }
-        }
-      }(window.location))
+    (function(){
+      let secmentCount = 1;
+      let l = window.location;
+      let port = l.port ? ':' + l.port : ''
+      l.replace(
+          `${l.protocol}//${l.hostname}${port}/?p=${l.pathname.split('/').slice(0, 1 + segmentCount).join('/')}`
+      )
+    })();
     </script>
   </head>
   <body>
-    <div class="smartphone-layer">
-      <p class="smartphone-layer__title">Sorry,<br>Smartphone is NOT supported.</p>
-      <div class="smartphone-layer__image">
-        <iframe src="https://giphy.com/embed/26BRzJmX5rH5Jbzuo" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/colbertlateshow-stephen-colbert-sorry-late-show-26BRzJmX5rH5Jbzuo">via GIPHY</a></p>
-      </div>
-    </div>
-    <div class="pc-layer">
-      <div class="loading-layer">
-        <p class="loading-layer__lead">Loading...</p>
-        <p class="loading-layer__progress"><span class="loading-layer__count">100</span>% Completed</p>
-      </div>
-      <main id="app"></main>
-    </div>
     <script src="./assets/js/vendor.js"></script>
     <script src="./assets/js/bundle.js"></script>
   </body>
