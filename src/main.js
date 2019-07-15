@@ -93,12 +93,7 @@ let showProgress = () => {
   window.requestAnimationFrame(updateProgress);
 }
 if ($('body').hasClass('top')) {
-  TweenMax.to($('body'), 1.5, {
-    autoAlpha: 1,
-    onComplete: () => {
-      showProgress();
-    }
-  });
+  showProgress();
 } else {
   TweenMax.to($('.loading-layer'), .5, {
     autoAlpha: 0

@@ -3,6 +3,9 @@ const path = require('path');
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const TerserPlugin = require('terser-webpack-plugin');
 
 const MODE = 'production';
 const enabledSourceMap = MODE === "development";
@@ -33,7 +36,8 @@ module.exports = {
           enforce: true
         }
       }
-    }
+    },
+    minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})]
   },
   devServer: {
     open: true,//ブラウザを自動で開く
@@ -83,9 +87,7 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          'vue-style-loader',
-          // 'css-loader',
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           {
             loader: "css-loader",
             options: {
@@ -179,6 +181,7 @@ module.exports = {
         },
       ],
     ),
+    new MiniCssExtractPlugin({filename: 'assets/css/style.min.css'}),
     // new HtmlWebpackPlugin({title: 'Revision control'})
   ]
 };

@@ -13,8 +13,6 @@ body {
 body {
   line-height: $line-height-pc;
   background-color: #050727;
-  opacity: 0;
-  visibility: hidden;
 
   @include pc {
     min-width: 1200px;
