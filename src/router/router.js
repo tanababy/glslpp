@@ -6,6 +6,7 @@ const HelloWorld = () => import('../components/pages/hello-world/HelloWorld');
 const About = () => import('../components/pages/about/About');
 const CircleAnimation = () => import('../components/pages/circle-animation/CircleAnimation');
 const DragonQuestGate = () => import('../components/pages/dragon-quest-gate/DragonQuestGate');
+const Distortion = () => import('../components/pages/distortion/Distortion');
 
 Vue.use(VueRouter);
 
@@ -29,6 +30,10 @@ const routes = [
   {
     path: '/dragon-quest-gate',
     component: DragonQuestGate,
+  },
+  {
+    path: '/distortion',
+    component: Distortion,
   }
 ];
 

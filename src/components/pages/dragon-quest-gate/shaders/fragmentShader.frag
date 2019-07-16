@@ -8,7 +8,7 @@ uniform vec2 resolution;
 uniform vec2 imageResolution;
 uniform float time;
 varying vec2 vUv;
-uniform sampler2D uTex;
+uniform sampler2D u_texture1;
 
 void main() {
   vec2 ratio = vec2(
@@ -21,6 +21,6 @@ void main() {
       vUv.y * ratio.y + (1.0 - ratio.y) * 0.5
     );
     vec2 zure = vec2(sin(vUv.y * 17.0 + time * 2.5) * 0.02, 0.0);
-  vec4 dest = texture2D(uTex, uv + zure);
+  vec4 dest = texture2D(u_texture1, uv + zure);
     gl_FragColor = dest;
 }
