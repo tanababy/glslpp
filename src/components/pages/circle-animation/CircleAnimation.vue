@@ -72,7 +72,7 @@
 <script>
 import vertexShader from './shaders/vertexShader.vert';
 import fragmentShader from './shaders/fragmentShader.frag';
-import { initShader } from "../../../model/shaderCompile";
+import initShader from "../../../model/shaderCompile";
 
 import TiltInteraction from "../../../model/tiltArrow";
 
@@ -89,11 +89,10 @@ export default {
   },
   methods: {
     canvasInit() {
-      initShader(vertexShader,fragmentShader);
+      new initShader(vertexShader,fragmentShader);
     },
     mouseInteraction(){
       let $tiltElement = document.getElementsByClassName("single-component__arrow-inner");
-      console.log($tiltElement);
       for (let i = 0; i < $tiltElement.length; i++) {
           new TiltInteraction($tiltElement[i]);
       }

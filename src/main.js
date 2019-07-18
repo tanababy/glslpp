@@ -1,11 +1,5 @@
-// import TweenMax from "gsap/TweenMax";
-// import ScrollToPlugin from "gsap/ScrollToPlugin";
-// const plugins = [ScrollToPlugin];
-
 import "./assets/_sass/style.scss";
 
-// import $ from 'jquery';
-// import * as THREE from 'three';
 import Vue from 'vue';
 import {TweenMax, Power2, TimelineLite} from "gsap/TweenMax";
 import ScrollToPlugin from "gsap/ScrollToPlugin";

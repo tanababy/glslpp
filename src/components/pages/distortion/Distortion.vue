@@ -1,12 +1,16 @@
 <template lang="pug">
 .single-component
+  ul.single-component__list
+    li.single-component__list-item#about(data-img="../assets/img/distortion/texture1.jpg" data-disp="../assets/img/common/displacement/1.jpg" @mouseenter="hoverChangeTexture" @mouseleave="DispFactOut()") ABOUT
+    li.single-component__list-item#works(data-img="../assets/img/distortion/texture2.jpg" data-disp="../assets/img/common/displacement/2.jpg" @mouseenter="hoverChangeTexture" @mouseleave="DispFactOut()") WORKS
+    li.single-component__list-item#recruit(data-img="../assets/img/distortion/texture3.jpg" data-disp="../assets/img/common/displacement/3.jpg" @mouseenter="hoverChangeTexture" @mouseleave="DispFactOut()") RECRUIT
   .single-component__arrow-right
     router-link(to="/circle-animation").single-component__arrow-inner
       img(src="../../../assets/img/common/arrow_right.svg").single-component__arrow-image
   .single-component__info
     h2.single-component__title Distortion Effect
     p.single-component__date 2019/07/16
-    p.single-component__desc これはただの赤いcanvasかもしれないが、私にとってはGLSL学習の偉大な第一歩だ。
+    p.single-component__desc テストテストテスト
   .canvas-container#canvas-container
 </template>
 
@@ -14,6 +18,28 @@
 .single-component {
   position: relative;
   width: 100vw;
+  color: white;
+
+  &__list {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5vw;
+    font-weight: bold;
+    letter-spacing: tracking(100);
+    color: aliceblue;
+    // mix-blend-mode: color-dodge;
+  }
+
+  &__list-item {
+    cursor: pointer;
+    line-height: 1;
+
+    &:nth-child(n+2) {
+      margin-top: 5vh;
+    }
+  }
 
   &__arrow-left,
   &__arrow-right {
@@ -69,7 +95,7 @@
 <script>
 import vertexShader from './shaders/vertexShader.vert';
 import fragmentShader from './shaders/fragmentShader.frag';
-import { initShader } from "../../../model/shaderCompile";
+import initShader from "../../../model/shaderCompile";
 
 import TiltInteraction from "../../../model/tiltArrow";
 
@@ -78,6 +104,7 @@ export default {
   data() {
     return {
       activeArticle: '',
+      threeCompile: ''
     }
   },
   mounted() {
@@ -91,10 +118,7 @@ export default {
   },
   methods: {
     canvasInit() {
-      let texturePath1 = '../assets/img/distortion/texture1.jpg';
-      let texturePath2 = '../assets/img/distortion/texture2.jpg';
-      let texturePath3 = '../assets/img/common/displacement/3.jpg';
-      initShader(vertexShader,fragmentShader,texturePath1,texturePath2,texturePath3);
+      this.threeCompile = new initShader(vertexShader,fragmentShader);
     },
     mouseInteraction(){
       let $tiltElement = document.getElementsByClassName("single-component__arrow-inner");
@@ -102,6 +126,17 @@ export default {
         new TiltInteraction($tiltElement[i]);
       }
     },
+    hoverChangeTexture(event){
+      let texturePath1 = '../assets/img/common/black-canvas.jpg';
+      let texturePath2 = event.currentTarget.getAttribute('data-img');
+      let texturePath3 = event.currentTarget.getAttribute('data-disp');
+      this.threeCompile.updateTexture(texturePath1,texturePath2,texturePath3);
+      this.threeCompile.dispFactorIn();
+    },
+    DispFactIn(){},
+    DispFactOut(){
+      this.threeCompile.dispFactorOut();
+    }
   }
 }
 </script>

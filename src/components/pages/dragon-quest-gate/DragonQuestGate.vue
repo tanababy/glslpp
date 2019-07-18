@@ -70,7 +70,7 @@
 <script>
 import vertexShader from './shaders/vertexShader.vert';
 import fragmentShader from './shaders/fragmentShader.frag';
-import { initShader } from "../../../model/shaderCompile";
+import initShader from "../../../model/shaderCompile";
 
 import TiltInteraction from "../../../model/tiltArrow";
 
@@ -88,7 +88,7 @@ export default {
   methods: {
     canvasInit() {
       let texturePath = '../assets/img/dragon-quest-gate/texture.jpg';
-      initShader(vertexShader,fragmentShader,texturePath);
+      new initShader(vertexShader,fragmentShader,texturePath);
     },
     mouseInteraction(){
       let $tiltElement = document.getElementsByClassName("single-component__arrow-inner");

@@ -10,12 +10,23 @@ uniform sampler2D u_texture1;//sampler2Dは変数の型
 uniform sampler2D u_texture2;
 uniform sampler2D u_texture3;
 
+uniform vec2 resolution;
+uniform vec2 imageResolution;
+
 uniform float dispFactor;
 uniform float effectFactor;
 
 void main() {
 
-    vec2 uv = vUv;
+    vec2 ratio = vec2(
+      min((resolution.x / resolution.y) / (imageResolution.x / imageResolution.y), 1.0),
+      min((resolution.y / resolution.x) / (imageResolution.y / imageResolution.x), 1.0)
+    );
+
+    vec2 uv = vec2(
+      vUv.x * ratio.x + (1.0 - ratio.x) * 0.5,
+      vUv.y * ratio.y + (1.0 - ratio.y) * 0.5
+    );
 
     vec4 disp = texture2D(u_texture3, uv);
     //texture2DはGLSLの組み込み関数。テクスチャから色情報を抜き出すもの。だからoutputはテクスチャの色情報。
