@@ -88,23 +88,29 @@ export default {
     return {
       articles: [
         {
-          title: 'Hello World!!',
-          pngThum: '../../../assets/img/hello-world/hello-world.png',
-          gifThum: '../../../assets/img/hello-world/hello-world.png',
-          path: '/hello-world'
-        },
-        {
-          title: 'Circle Rhythm Animation',
-          pngThum: '../../../assets/img/circle-animation/circle-animation.png',
-          gifThum: '../../../assets/img/circle-animation/circle-animation.gif',
-          path: '/circle-animation'
+          title: 'Distortion Hover Effect',
+          pngThum: '../../../assets/img/distortion/article.png',
+          gifThum: '../../../assets/img/distortion/article.gif',
+          path: '/distortion'
         },
         {
           title: 'Dragon Quest Gate',
-          pngThum: '../../../assets/img/dragon-quest-gate/dragon-quest-gate.png',
-          gifThum: '../../../assets/img/dragon-quest-gate/dragon-quest-gate.gif',
+          pngThum: '../../../assets/img/dragon-quest-gate/article.png',
+          gifThum: '../../../assets/img/dragon-quest-gate/article.gif',
           path: '/dragon-quest-gate'
         },
+        {
+          title: 'Circle Rhythm Animation',
+          pngThum: '../../../assets/img/circle-animation/article.png',
+          gifThum: '../../../assets/img/circle-animation/article.gif',
+          path: '/circle-animation'
+        },
+        {
+          title: 'Hello World!!',
+          pngThum: '../../../assets/img/hello-world/article.png',
+          gifThum: '../../../assets/img/hello-world/article.png',
+          path: '/hello-world'
+        }
       ],
       activeArticle: ''
     }

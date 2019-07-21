@@ -1,70 +1,25 @@
 <template lang="pug">
 .single-component
   .single-component__arrow-left
+    router-link(to="/distortion").single-component__arrow-inner
+      img(src="../../../assets/img/common/arrow_left_white.svg")
+  .single-component__arrow-right
     router-link(to="/circle-animation").single-component__arrow-inner
-      img(src="../../../assets/img/common/arrow_left.svg")
+      img(src="../../../assets/img/common/arrow_right_white.svg")
   .single-component__info
     h2.single-component__title Dragon Quest Gate
     p.single-component__date 2019/07/01
-    p.single-component__desc ドラゴンクエストの「旅の扉」のようなエフェクト
+    p.single-component__desc 参考: <a href="https://ikeryou.hatenablog.com/entry/2019/06/13/192501" target="_blank">第12回 インタラ会 資料 - ikeryou / blog</a>
+      br
+      | gl_FragColorにテクスチャ座標の色情報を与えることで、canvas上に画像を表示させることができる。
+      br
+      | 座標を与える前に、座標を歪ませることによって、「ぐにゃぐにゃ」した効果を加えることができる。
+      br
+      | タイトルの由来は、「ドラゴンクエストモンスターズ テリーのワンダーランド」の旅の扉の演出に似ていることから。
   .canvas-container#canvas-container
 </template>
 
 <style lang="scss" scoped>
-.single-component {
-  position: relative;
-  color: white;
-  width: 100vw;
-
-  &__arrow-left,
-  &__arrow-right {
-    position: absolute;
-    z-index: 3;
-    top: 50%;
-    transform: translateY(-50%);
-
-    img {
-      width: 35px;
-    }
-  }
-
-  &__arrow-inner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 120px;
-    height: 120px;
-  }
-
-  &__arrow-left {
-    left: 0;
-  }
-
-  &__arrow-right {
-    right: 0;
-  }
-
-  &__info {
-    position: absolute;
-    left: 20px;
-    bottom: 20px;
-  }
-
-  &__title {
-    font-family: 'Orbitron', sans-serif;
-    font-weight: bold;
-    font-size: 50px;
-  }
-
-  &__date {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 25px;
-  }
-
-  &__desc {
-    font-size: 16px;
-  }
-}
 </style>
 
 <script>

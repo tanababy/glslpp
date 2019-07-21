@@ -1,68 +1,18 @@
 <template lang="pug">
 .single-component
-  .single-component__arrow-right
+  .single-component__arrow-left
     router-link(to="/circle-animation").single-component__arrow-inner
-      img(src="../../../assets/img/common/arrow_right.svg").single-component__arrow-image
+      img(src="../../../assets/img/common/arrow_left.svg")
   .single-component__info
     h2.single-component__title Hello World!!
     p.single-component__date 2019/06/23
-    p.single-component__desc これはただの赤いcanvasかもしれないが、私にとってはGLSL学習の偉大な第一歩だ。
+    p.single-component__desc GLSL、Hello World! gl_FragCoordを正規化し、グラデーションを描いた。
   .canvas-container#canvas-container
 </template>
 
 <style lang="scss" scoped>
 .single-component {
-  position: relative;
-  width: 100vw;
-
-  &__arrow-left,
-  &__arrow-right {
-    position: absolute;
-    z-index: 3;
-    top: 50%;
-    transform: translateY(-50%);
-
-    img {
-      width: 35px;
-    }
-  }
-
-  &__arrow-inner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 120px;
-    height: 120px;
-  }
-
-  &__arrow-left {
-    left: 0;
-  }
-
-  &__arrow-right {
-    right: 0;
-  }
-
-  &__info {
-    position: absolute;
-    left: 20px;
-    bottom: 20px;
-  }
-
-  &__title {
-    font-family: 'Orbitron', sans-serif;
-    font-weight: bold;
-    font-size: 50px;
-  }
-
-  &__date {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 25px;
-  }
-
-  &__desc {
-    font-size: 16px;
-  }
+  color: white;
 }
 </style>
 

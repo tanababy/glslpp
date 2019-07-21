@@ -11,7 +11,7 @@ export default class initShader {
     this.renderer = new THREE.WebGLRenderer();
     this.vertexShader = vertexShader;
     this.fragmentShader = fragmentShader;
-    this.intensity = 1;
+    this.intensity = .5;
     this.speedIn = 1.6;
     this.speedOut = 1.2;
     this.easing = Expo.easeOut;

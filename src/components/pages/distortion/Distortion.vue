@@ -1,95 +1,28 @@
 <template lang="pug">
 .single-component
   ul.single-component__list
-    li.single-component__list-item#about(data-img="../assets/img/distortion/texture1.jpg" data-disp="../assets/img/common/displacement/1.jpg" @mouseenter="hoverChangeTexture" @mouseleave="DispFactOut()") ABOUT
-    li.single-component__list-item#works(data-img="../assets/img/distortion/texture2.jpg" data-disp="../assets/img/common/displacement/2.jpg" @mouseenter="hoverChangeTexture" @mouseleave="DispFactOut()") WORKS
-    li.single-component__list-item#recruit(data-img="../assets/img/distortion/texture3.jpg" data-disp="../assets/img/common/displacement/3.jpg" @mouseenter="hoverChangeTexture" @mouseleave="DispFactOut()") RECRUIT
+    li.single-component__list-item(data-img="../assets/img/distortion/texture1.jpg" data-disp="../assets/img/common/displacement/1.jpg" @mouseenter="hoverChangeTexture" @mouseleave="DispFactOut()") Shinjuku
+    li.single-component__list-item(data-img="../assets/img/distortion/texture2.jpg" data-disp="../assets/img/common/displacement/2.jpg" @mouseenter="hoverChangeTexture" @mouseleave="DispFactOut()") Minato
+    li.single-component__list-item(data-img="../assets/img/distortion/texture3.jpg" data-disp="../assets/img/common/displacement/3.jpg" @mouseenter="hoverChangeTexture" @mouseleave="DispFactOut()") Shibuya
   .single-component__arrow-right
-    router-link(to="/circle-animation").single-component__arrow-inner
-      img(src="../../../assets/img/common/arrow_right.svg").single-component__arrow-image
+    router-link(to="/dragon-quest-gate").single-component__arrow-inner
+      img(src="../../../assets/img/common/arrow_right_white.svg")
   .single-component__info
     h2.single-component__title Distortion Effect
     p.single-component__date 2019/07/16
-    p.single-component__desc テストテストテスト
+    p.single-component__desc 参考: <a href="https://tympanus.net/codrops/2018/04/10/webgl-distortion-hover-effects/" target="_blank">WebGL Distortion Hover Effects | Codrops</a>
+      br
+      | ディストーションエフェクト。"DragonQuestGate"と原理は同じで、テクスチャ座標を特定の計算式で歪ませる。
+      br
+      | その計算式では、dislayment画像というエフェクトを生み出す画像のテクスチャ座標を使用する。
+      br
+      | 表示したい画像のテクスチャと、黒一色のテクスチャの座標を線形補間し、canvasに表示させる。
+      br
+      | また、ホバー毎にテクスチャをthree.js側で入れ替えている。
   .canvas-container#canvas-container
 </template>
 
 <style lang="scss" scoped>
-.single-component {
-  position: relative;
-  width: 100vw;
-  color: white;
-
-  &__list {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 5vw;
-    font-weight: bold;
-    letter-spacing: tracking(100);
-    color: aliceblue;
-    // mix-blend-mode: color-dodge;
-  }
-
-  &__list-item {
-    cursor: pointer;
-    line-height: 1;
-
-    &:nth-child(n+2) {
-      margin-top: 5vh;
-    }
-  }
-
-  &__arrow-left,
-  &__arrow-right {
-    position: absolute;
-    z-index: 3;
-    top: 50%;
-    transform: translateY(-50%);
-
-    img {
-      width: 35px;
-    }
-  }
-
-  &__arrow-inner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 120px;
-    height: 120px;
-  }
-
-  &__arrow-left {
-    left: 0;
-  }
-
-  &__arrow-right {
-    right: 0;
-  }
-
-  &__info {
-    position: absolute;
-    left: 20px;
-    bottom: 20px;
-  }
-
-  &__title {
-    font-family: 'Orbitron', sans-serif;
-    font-weight: bold;
-    font-size: 50px;
-  }
-
-  &__date {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 25px;
-  }
-
-  &__desc {
-    font-size: 16px;
-  }
-}
 </style>
 
 <script>
