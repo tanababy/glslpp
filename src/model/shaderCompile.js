@@ -12,7 +12,7 @@ export default class initShader {
     this.vertexShader = vertexShader;
     this.fragmentShader = fragmentShader;
     this.intensity = .5;
-    this.speedIn = 1.6;
+    this.speedIn = 2.5;
     this.speedOut = 1.2;
     this.easing = Expo.easeOut;
     this.texturePath1 = texturePath1 || null;
@@ -24,7 +24,7 @@ export default class initShader {
     this.uniforms = {
       time: { type: "f", value: 1.0 },
       resolution: { type: "v2", value: new THREE.Vector2() },
-      imageResolution: { type: 'v2', value: new THREE.Vector2(1280, 849)},
+      imageResolution: { type: 'v2', value: new THREE.Vector2(1024, 512)},
       u_mouse: { type: "v2", value: new THREE.Vector2() },
       u_texture1: { type: "t", value: this.texture1 },
       u_texture2: { type: "t", value: this.texture2 },
@@ -90,11 +90,13 @@ export default class initShader {
     }
     if (texturePath2) {
       this.loader.load(`${texturePath2}`, (tex) => {
+        // tex.wrapS = tex.wrapT = THREE.RepeatWrapping;//テクスチャーが縦横でリピートするようにする
         this.material.uniforms.u_texture2.value = tex;
       });
     }
     if (texturePath3) {
       this.loader.load(`${texturePath3}`, (tex) => {
+        tex.wrapS = tex.wrapT = THREE.RepeatWrapping;//テクスチャーが縦横でリピートするようにする
         this.material.uniforms.u_texture3.value = tex;
       });
     }
@@ -133,6 +135,8 @@ export default class initShader {
   }
 
   setCamera() {//カメラをセット
+    this.camera.aspect = window.innerWidth / window.innerHeight;
+    this.camera.updateProjectionMatrix;
     this.camera.position.z = 1;
   }
 

@@ -2,7 +2,7 @@
 .single-component
   ul.single-component__list
     li.single-component__list-item(data-img="../assets/img/distortion/texture1.jpg" data-disp="../assets/img/common/displacement/1.jpg" @mouseenter="hoverChangeTexture" @mouseleave="DispFactOut()") Shinjuku
-    li.single-component__list-item(data-img="../assets/img/distortion/texture2.jpg" data-disp="../assets/img/common/displacement/2.jpg" @mouseenter="hoverChangeTexture" @mouseleave="DispFactOut()") Minato
+    li.single-component__list-item(data-img="../assets/img/distortion/texture2.jpg" data-disp="../assets/img/common/displacement/15.jpg" @mouseenter="hoverChangeTexture" @mouseleave="DispFactOut()") Minato
     li.single-component__list-item(data-img="../assets/img/distortion/texture3.jpg" data-disp="../assets/img/common/displacement/3.jpg" @mouseenter="hoverChangeTexture" @mouseleave="DispFactOut()") Shibuya
   .single-component__arrow-right
     router-link(to="/dragon-quest-gate").single-component__arrow-inner
